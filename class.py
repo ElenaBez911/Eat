@@ -7,15 +7,12 @@ class Animal:
         self.name = name
 
     def eat(self, food):
-        if isinstance(food, Plant):
-            if food.edible:
-                print(f"{self.name} съел {food.name}")
-                self.fed = True
-            else:
-                print(f"{self.name} не стал есть {food.name}")
-                self.alive = False
+        if food.edible:
+            print(f"{self.name} съел {food.name}")
+            self.fed = True
         else:
-            print(f"{food.name} не является растением. {self.name} не может это съесть")
+            print(f"{self.name} не стал есть {food.name}")
+            self.alive = False
 
 class Plant:
 
@@ -31,9 +28,7 @@ class Predator(Animal):
     pass
 
 class Flower(Plant):
-
-    def __init__(self, name):
-        super().__init__(name)
+    pass
 
 class Fruit(Plant):
 
@@ -54,6 +49,3 @@ a1.eat(p1)
 a2.eat(p2)
 print(a1.alive)
 print(a2.fed)
-
-# Что произошло: Хищник попытался съесть цветок и погиб,
-# млекопитающее съело фрукт и насытилось.
